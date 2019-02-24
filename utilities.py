@@ -2,6 +2,7 @@
 # Adapted from Stanford CS106B assignment.
 # ReadyPython Sp19
 
+# Feel free to delete anything and implement it your own way!
 import os
 import random
 
@@ -28,77 +29,28 @@ def print_world(worldToPrint):
 
 def get_world():
     '''Asks the user for input and accordingly returns a 2D list representing the world.'''
-    while True:
-        fileName = input("Grid input file name? (or type 'random') ")
-        if fileName == "random":
-            return create_random_world()
-        try:
-            fhand = open("./worlds/" + fileName)
-        except:
-            print("Invalid file name. Try again.")
-            continue
-        return create_world(fhand)
-
-def create_random_world():
-    num_rows = random.randint(10, 30) #height range
-    num_columns = random.randint(30, 70) #width range
-    world = create_empty_2D_list(num_rows, num_columns)
-    choices = ["-", "-", "-", "X"] #25% chance alive for each grid
     '*** YOUR CODE HERE ***'
 
+def create_random_world():
+    '*** YOUR CODE HERE ***'
 
-def create_world(fhand):
-    curr_line = 0
-    for line in fhand:
-        curr_line += 1
-        if(curr_line == 1):
-            num_rows = _________ #FIXME
-        elif(curr_line == 2):
-            num_columns = _________ #FIXME
-            world = create_empty_2D_list(num_rows, num_columns)
-        elif(curr_line == num_rows + 3):
-            break
-        else:
-            # FIXME: populate world with current line of input
-    return world
-
+def create_world(fhand): #reading from files to be covered in Lecture 6. Learning it yourself on py4e totally manageable.
+    '*** YOUR CODE HERE ***'
 
 def create_empty_2D_list(height, width):
     '*** YOUR CODE HERE ***'
 
 def ask_wrap():
-    while True:
-        wrap = input("Should the simulation wrap around the grid (y/n)? ")
-        _________ # FIXME: check if the input is correct. If so, return Bool accordingly
-
+    '*** YOUR CODE HERE ***'
 
 def ask_for_cmd():
-    while True:
-        cmd = input("t)ick, a)nimate, or q)uit? ")
-        if cmd == 't' or cmd == 'a' or cmd == 'q':
-            __________ # FIXME
-        else:
-            print("Please enter 't', or 'a', or 'q'" )
-    return cmd
+    '*** YOUR CODE HERE ***'
 
 def ask_how_many_frames():
-    while True:
-        cmd = input("How many frames? ")
-        try:
-            _________ #FIXME
-        except:
-            print("Please enter an integer.")
-            continue
-        if cmd < 1:
-            print("Please enter a positive integer.")
-            continue
-        return cmd
-
+    '*** YOUR CODE HERE ***'
 
 def calculate_next(world, wrap):
     '*** YOUR CODE HERE ***'
-
-
 
 def calculate_num_neighbors(world, i, j, wrap):
     '*** YOUR CODE HERE ***'
