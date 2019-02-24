@@ -75,7 +75,7 @@ def create_empty_2D_list(height, width):
 def ask_wrap():
     while True:
         wrap = input("Should the simulation wrap around the grid (y/n)? ")
-        _________ # FIXME: check if the input is correct and return
+        _________ # FIXME: check if the input is correct. If so, return Bool accordingly
 
 
 def ask_for_cmd():
@@ -91,7 +91,7 @@ def ask_how_many_frames():
     while True:
         cmd = input("How many frames? ")
         try:
-            cmd = int(cmd)
+            _________ #FIXME
         except:
             print("Please enter an integer.")
             continue
@@ -106,11 +106,11 @@ def calculate_next(world, wrap):
     for i in range(len(world)):
         for j in range(len(world[0])):
             neighbors = calculate_num_neighbors(world, i, j, wrap)
-            if neighbors == 0 or neighbors == 1 or neighbors > 3:
+            if __________: #FIXME
                 newWorld[i][j] = '-'
-            elif neighbors == 3:
+            elif __________: #FIXME
                 newWorld[i][j] = 'X'
-            elif neighbors == 2:
+            elif _________: #FIXME
                 newWorld[i][j] = world[i][j]
     return newWorld
 
@@ -120,17 +120,17 @@ def calculate_num_neighbors(world, i, j, wrap):
     sum = 0
     height = len(world)
     width = len(world[0])
-    for row in range(i - 1, i + 2):
-        for column in range(j - 1, j + 2):
+    for row in __________: #FIXME
+        for column in ___________: #FIXME
             if wrap:
-                row = (row + height) % height # modular trick for wrapping around grids. -1 => height - 1; height => 0
-                column = (column + width) % width # similar to above
+                row = ___________ #FIXME
+                column = __________ #FIXME
             else:
                 #no wrapping. ignore out of range indices
-                if row >= height or row < 0 or column >= width or column < 0:
+                if _____________________________: #FIXME
                     continue
             if world[row][column] == "X":
                 sum += 1
     if world[i][j] =="X":
-        sum -= 1
+        __________ #FIXME
     return sum
