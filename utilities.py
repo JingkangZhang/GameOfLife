@@ -24,10 +24,7 @@ def print_welcome_message():
 
 def print_world(worldToPrint):
     '''Prints the formatted game world representations.'''
-    for __ in __________: #FIXME
-        for __ in ___________: #FIXME
-            print(worldToPrint[i][j], end="")
-        print()
+    '*** YOUR CODE HERE ***'
 
 def get_world():
     '''Asks the user for input and accordingly returns a 2D list representing the world.'''
@@ -47,10 +44,7 @@ def create_random_world():
     num_columns = random.randint(30, 70) #width range
     world = create_empty_2D_list(num_rows, num_columns)
     choices = ["-", "-", "-", "X"] #25% chance alive for each grid
-    for i in range(num_rows):
-        for j in range(num_columns):
-            world[i][j] = random.choice(choices)
-    return world
+    '*** YOUR CODE HERE ***'
 
 
 def create_world(fhand):
@@ -70,7 +64,7 @@ def create_world(fhand):
 
 
 def create_empty_2D_list(height, width):
-    return [["" for column in range(width)] for line in range(height)]
+    '*** YOUR CODE HERE ***'
 
 def ask_wrap():
     while True:
@@ -102,35 +96,9 @@ def ask_how_many_frames():
 
 
 def calculate_next(world, wrap):
-    newWorld = create_empty_2D_list(len(world), len(world[0]))
-    for i in range(len(world)):
-        for j in range(len(world[0])):
-            neighbors = calculate_num_neighbors(world, i, j, wrap)
-            if __________: #FIXME
-                newWorld[i][j] = '-'
-            elif __________: #FIXME
-                newWorld[i][j] = 'X'
-            elif _________: #FIXME
-                newWorld[i][j] = world[i][j]
-    return newWorld
+    '*** YOUR CODE HERE ***'
 
 
 
 def calculate_num_neighbors(world, i, j, wrap):
-    sum = 0
-    height = len(world)
-    width = len(world[0])
-    for row in __________: #FIXME
-        for column in ___________: #FIXME
-            if wrap:
-                row = ___________ #FIXME
-                column = __________ #FIXME
-            else:
-                #no wrapping. ignore out of range indices
-                if _____________________________: #FIXME
-                    continue
-            if world[row][column] == "X":
-                sum += 1
-    if world[i][j] =="X":
-        __________ #FIXME
-    return sum
+    '*** YOUR CODE HERE ***'
