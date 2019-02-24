@@ -1,11 +1,17 @@
+# Game of life implemented in Python.
+# Adapted from Stanford CS106B assignment.
+# ReadyPython Sp19
+
 import os
 import random
 
 def cls():
+    '''Clears the terminal screen.'''
     os.system('cls' if os.name=='nt' else 'clear')
 
 def print_welcome_message():
-    print("========================================================")
+    '''Prints welcome messages to console.'''
+    print("=============================================================")
     print("Welcome to ReadyPython Sp19 Game of Life!")
     print("Adapted from Stanford CS106B. Game of life is ")
     print("a simulation of the lifecycle of a bacteria colony.")
@@ -17,12 +23,14 @@ def print_welcome_message():
 
 
 def print_world(worldToPrint):
+    '''Prints the formatted game world representations.'''
     for i in range(len(worldToPrint)):
         for j in range(len(worldToPrint[0])):
             print(worldToPrint[i][j], end="")
         print()
 
 def get_world():
+    '''Asks the user for input and accordingly returns a 2D list representing the world.'''
     while True:
         fileName = input("Grid input file name? (or type 'random') ")
         if fileName == "random":
@@ -35,10 +43,10 @@ def get_world():
         return create_world(fhand)
 
 def create_random_world():
-    num_rows = random.randint(10, 30)
-    num_columns = random.randint(30, 70)
+    num_rows = random.randint(10, 30) #height range
+    num_columns = random.randint(30, 70) #width range
     world = create_empty_2D_list(num_rows, num_columns)
-    choices = ["-", "-", "-", "X"] #25% chance alive for each cell
+    choices = ["-", "-", "-", "X"] #25% chance alive for each grid
     for i in range(num_rows):
         for j in range(num_columns):
             world[i][j] = random.choice(choices)
@@ -63,8 +71,8 @@ def create_world(fhand):
     return world
 
 
-def create_empty_2D_list(l, c):  #to be [["n","n","n"],["n","n","n"],["n","n","n"]]
-    return [["" for column in range(c)] for line in range(l)]
+def create_empty_2D_list(height, width):
+    return [["" for column in range(width)] for line in range(height)]
 
 def ask_wrap():
     while True:
@@ -120,9 +128,10 @@ def calculate_num_neighbors(world, i, j, wrap):
     for row in range(i - 1, i + 2):
         for column in range(j - 1, j + 2):
             if wrap:
-                row = (row + height) % height
-                column = (column + width) % width
+                row = (row + height) % height # modular trick for wrapping around grids. -1 => height - 1; height => 0
+                column = (column + width) % width # similar to above
             else:
+                #no wrapping. ignore out of range indices
                 if row >= height or row < 0 or column >= width or column < 0:
                     continue
             if world[row][column] == "X":
