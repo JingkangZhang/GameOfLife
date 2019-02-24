@@ -24,8 +24,8 @@ def print_welcome_message():
 
 def print_world(worldToPrint):
     '''Prints the formatted game world representations.'''
-    for i in range(len(worldToPrint)):
-        for j in range(len(worldToPrint[0])):
+    for __ in __________: #FIXME
+        for __ in ___________: #FIXME
             print(worldToPrint[i][j], end="")
         print()
 
@@ -58,16 +58,14 @@ def create_world(fhand):
     for line in fhand:
         curr_line += 1
         if(curr_line == 1):
-            num_rows = int(line)
+            num_rows = _________ #FIXME
         elif(curr_line == 2):
-            num_columns = int(line)
+            num_columns = _________ #FIXME
             world = create_empty_2D_list(num_rows, num_columns)
         elif(curr_line == num_rows + 3):
             break
         else:
-            line = line.strip()
-            line_list = list(line)
-            world[curr_line - 3] = line_list
+            # FIXME: populate world with current line of input
     return world
 
 
@@ -77,17 +75,14 @@ def create_empty_2D_list(height, width):
 def ask_wrap():
     while True:
         wrap = input("Should the simulation wrap around the grid (y/n)? ")
-        if wrap == "y":
-            return True
-        elif wrap == "n":
-            return False
+        _________ # FIXME: check if the input is correct and return
 
 
 def ask_for_cmd():
     while True:
         cmd = input("t)ick, a)nimate, or q)uit? ")
         if cmd == 't' or cmd == 'a' or cmd == 'q':
-            break
+            __________ # FIXME
         else:
             print("Please enter 't', or 'a', or 'q'" )
     return cmd
